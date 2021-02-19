@@ -22,7 +22,7 @@ jobs:
           draft: false
           prerelease: false
       - name: Create Assets
-        run: apt install dh-make && make deb
+        run: sudo apt install dh-make && make deb
           #- name: Build Docker Image
           #  run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
       - name: Upload TEST Asset
