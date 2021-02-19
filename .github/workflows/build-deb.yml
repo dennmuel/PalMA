@@ -44,4 +44,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ../palma_${{ github.ref }}_all.deb
           asset_name: palma_${{ github.ref }}_all.deb
-          #asset_content_type: text/plain
+          asset_content_type: application/zip
