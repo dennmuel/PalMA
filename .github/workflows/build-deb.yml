@@ -26,22 +26,22 @@ jobs:
           #- name: Build Docker Image
           #  run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
       - name: Upload TEST Asset
-        id: upload-release-asset 
+        id: upload-release-asset-test
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: TODO
           asset_name: TODO
           asset_content_type: text/plain
       - name: Upload Deb Asset
-        id: upload-release-asset 
+        id: upload-release-asset-deb
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ../palma_${{ github.ref }}_all.deb
           asset_name: palma_${{ github.ref }}_all.deb
           #asset_content_type: text/plain
