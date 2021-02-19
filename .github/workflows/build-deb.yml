@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
+        uses: actions/checkout@v2
       - name: Set release version env
         id: vars
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
