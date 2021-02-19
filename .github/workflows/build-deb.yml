@@ -14,7 +14,7 @@ jobs:
       - name: Set release version env
         id: vars
         run: |
-            version = $(echo ${GITHUB_REF#refs/*/} | sed s/^v//)
+            version=$(echo ${GITHUB_REF#refs/*/} | sed s/^v//)
             echo "::set-output name=version::$version"
       - name: Create Release
         id: create_release
